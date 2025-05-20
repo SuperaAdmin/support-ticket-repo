@@ -245,7 +245,7 @@ export default function SupportForm() {
           {/* Image Upload */}
           <div>
             <label className="block text-sm font-medium mb-1" htmlFor="images">
-              Attach screenshots or files(optional)
+              Attach screenshots or files (optional)
             </label>
             {renderImageCards()}
           </div>
