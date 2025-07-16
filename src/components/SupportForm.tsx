@@ -14,6 +14,8 @@ export default function SupportForm() {
   const [images, setImages] = useState<File[]>([]);
   const [urgent, setUrgent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [targetDate, setTargetDate] = useState('');
+  const [meetingDate, setMeetingDate] = useState('');
 
   //Image Card Rendering
   const handleFileAdd = (file: File) => {
@@ -91,7 +93,9 @@ export default function SupportForm() {
           "10": { value: category },
           "11": { value: type },
           "12": { value: description },
-          "13": { value: urgent }
+          "13": { value: urgent },
+          "17": { value: targetDate },
+          "18": { value: meetingDate }
         }
       ],
       fieldsToReturn: [3]
@@ -128,6 +132,8 @@ export default function SupportForm() {
     setCategory('Quickbase');
     setType('Fix');
     setDescription('');
+    setTargetDate('');
+    setMeetingDate('');
     setImages([]);
     setUrgent(false);
     setSubmitted(true);
@@ -239,6 +245,34 @@ export default function SupportForm() {
               onChange={(e) => setDescription(e.target.value)}
               required
               placeholder="Please be as detailed as possible, and provide a link to the issue if applicable."
+            />
+          </div>
+
+          {/* Target Completion Date */}
+          <div>
+            <label className="block text-sm font-medium mb-1" htmlFor="targetDate">
+              Target Completion Date
+            </label>
+            <input
+              id="targetDate"
+              type="date"
+              value={targetDate}
+              onChange={(e) => setTargetDate(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+            />
+          </div>
+
+          {/* Schedule Meeting Date */}
+          <div>
+            <label className="block text-sm font-medium mb-1" htmlFor="meetingDate">
+              Schedule Meeting Date
+            </label>
+            <input
+              id="meetingDate"
+              type="date"
+              value={meetingDate}
+              onChange={(e) => setMeetingDate(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg"
             />
           </div>
 
